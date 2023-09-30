@@ -32,12 +32,12 @@ trained_model_dir = args.trained_model_dir
 test_csv = args.test_csv
 dataset = args.dataset
 mmff = args.mmff
-
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 with open(f'{trained_model_dir}/model_parameters.yml') as f:
     model_parameters = yaml.full_load(f)
 model = GeoMol(**model_parameters)
 
-state_dict = torch.load(f'{trained_model_dir}/best_model.pt', map_location=torch.device('cpu'))
+state_dict = torch.load(f'{trained_model_dir}/best_model.pt', map_location=device)
 model.load_state_dict(state_dict, strict=True)
 model.eval()
 
