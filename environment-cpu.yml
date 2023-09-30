@@ -184,4 +184,3 @@ dependencies:
       - tqdm==4.66.1
       - typing-extensions==3.7.4.3
       - zipp==3.15.0
-prefix: /usr/local/envs/GeoMol
