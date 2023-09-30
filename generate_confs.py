@@ -54,7 +54,7 @@ for smi, n_confs in tqdm(test_data.values):
     
     # generate model predictions
     data = Batch.from_data_list([tg_data])
-    model(data, inference=True, n_model_confs=n_confs*2)
+    model(data.to(device), inference=True, n_model_confs=n_confs*2)
     
     # set coords
     n_atoms = tg_data.x.size(0)
