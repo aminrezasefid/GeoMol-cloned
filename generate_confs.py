@@ -54,8 +54,6 @@ for smi, n_confs in tqdm(test_data.values):
     
     # generate model predictions
     data = Batch.from_data_list([tg_data])
-    for param in model.parameters():
-        print(param.device)
     model(data.to(device), inference=True, n_model_confs=n_confs*2)
     
     # set coords
