@@ -51,7 +51,7 @@ for smi, n_confs in tqdm(test_data.values):
     if not tg_data:
         print(f'failed to featurize SMILES: {smi}')
         continue
-    if data==-1:
+    if tg_data==-1:
         print(f'failed to with atom symbol: {smi}')
         continue
     # generate model predictions
