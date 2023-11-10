@@ -1,6 +1,7 @@
 # IDE
 .idea/
-
+data/MoleculeNet
+data/test
 .mypy_cache/
 .pytest_cache/
 
