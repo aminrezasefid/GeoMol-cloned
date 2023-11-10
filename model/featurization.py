@@ -287,7 +287,10 @@ def featurize_mol_from_smiles(smiles, dataset='qm9'):
     neighbor_dict = {}
     ring = mol.GetRingInfo()
     for i, atom in enumerate(mol.GetAtoms()):
-        type_idx.append(types[atom.GetSymbol()])
+        symb=atom.GetSymbol()
+        if symb not in types.keys():
+            return None
+        type_idx.append(types[symb])
         n_ids = [n.GetIdx() for n in atom.GetNeighbors()]
         if len(n_ids) > 1:
             neighbor_dict[i] = torch.tensor(n_ids)
