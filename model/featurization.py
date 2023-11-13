@@ -290,6 +290,8 @@ def featurize_mol_from_smiles(smiles, dataset='qm9'):
         symb=atom.GetSymbol()
         if symb not in types.keys():
             return -1
+        if len(atom.GetBonds())>4:
+            return -2
         type_idx.append(types[symb])
         n_ids = [n.GetIdx() for n in atom.GetNeighbors()]
         if len(n_ids) > 1:

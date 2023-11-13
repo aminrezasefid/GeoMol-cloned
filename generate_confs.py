@@ -54,6 +54,9 @@ for smi, n_confs in tqdm(test_data.values):
     if tg_data==-1:
         print(f'failed to with atom symbol: {smi}')
         continue
+    if tg_data==-2:
+        print(f'failed due to lots of bonds:{smi}')
+        continue
     # generate model predictions
     data = Batch.from_data_list([tg_data])
     model(data.to(device), inference=True, n_model_confs=n_confs*2)
